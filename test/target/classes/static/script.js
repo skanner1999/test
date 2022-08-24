@@ -1,3 +1,4 @@
+
 let mysql = require('mysql');
 
 let connection = mysql.createConnection({
@@ -7,12 +8,17 @@ let connection = mysql.createConnection({
     database: 'eCommerceDB'
 });
 
-connection.connect(function(err) {
-    if (err) throw err;
-    connection.query("SELECT * FROM items;", function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-    });
-  });
+let someVar = [];
 
-  
+connection.query("select * from customers;", function(err, rows){
+  if(err) {
+    throw err;
+  } else {
+    setValue(rows);
+  }
+});
+
+function setValue(value) {
+  someVar = value;
+  console.log(someVar);
+}
