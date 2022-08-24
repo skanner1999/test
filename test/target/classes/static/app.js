@@ -1,6 +1,3 @@
-import SockJS from 'sockjs-client';
-import Stomp from 'stompjs';
-
 let stompClient = null;
 
 function setConnected(connected) {
@@ -12,7 +9,7 @@ function setConnected(connected) {
     else {
         $("#conversation").hide();
     }
-    $("#greetings").html("");
+    $("#greetings").html("Error");
 }
 
 function connect() {
