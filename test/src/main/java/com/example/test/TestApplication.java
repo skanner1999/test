@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestApplication {
 
   public static void main(String[] args) {
-    // Database db = new Database();
-    //System.out.println(db.getUsers());
     SpringApplication.run(TestApplication.class, args);
   }
 
