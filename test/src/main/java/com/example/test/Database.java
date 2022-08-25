@@ -59,16 +59,17 @@ public class Database {
         }
     }
 
-    public void Insert(String x, String y, String z) throws SQLException {
+    public void Insert(String x, String y, String z, String p) throws SQLException {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         //Getting the connection
-        String mysqlUrl = "jdbc:mysql://bsck.mysql.database.azure.com:3306?useSSL=true";
-        Connection con = DriverManager.getConnection(mysqlUrl, "skanner", "Password12345");
-        String InsertQ = "INSERT INTO Employee.employees (username,first_name,last_name) VALUES (?,?,?);";
+        String mysqlUrl = "jdbc:mysql://localhost:3306";
+        Connection con = DriverManager.getConnection(mysqlUrl, "root", "password");
+        String InsertQ = "INSERT INTO eCommerceDB.customers (phone_number,first_name,last_name, password) VALUES (?,?,?,?);";
         PreparedStatement preparedStmt = con.prepareStatement(InsertQ);
         preparedStmt.setString(1, x);
         preparedStmt.setString(2, y);
         preparedStmt.setString(3, z);
+        preparedStmt.setString(4, p);
         preparedStmt.executeUpdate();
     }
 
